@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace GJ {
 
     public class InputEntity {
         public InputSystem_Action input_Role;
-        public Vector2 moveAxis;
-
-        public bool isKeyDownE;
+        public InputMouseStatus MouseStatus { get; private set; }
+        public Vector3 MouseScreenPosition { get; private set; }
+        public bool IsDragging { get; private set; }
 
         public InputEntity() {
             input_Role = new InputSystem_Action();
@@ -18,29 +19,28 @@ namespace GJ {
             input_Role.Disable();
         }
 
-        public void Tick(float dt) {
-            var World = input_Role.World;
-            // // move
+        public void Process(float dt) {
+
+            // -Mouse
             {
-                float kbxLeft = World.MoveLeft.ReadValue<float>();
-                float kbxRight = World.MoveRight.ReadValue<float>();
-
-                float kbxUp = World.MoveUp.ReadValue<float>();
-                float kbxDown = World.MoveDown.ReadValue<float>();
-
-                Vector2 axis = new Vector2(kbxRight - kbxLeft, kbxUp - kbxDown);
-                moveAxis = axis;
-            }
-
-            //PressE
-            {
-                if (World.PressE.triggered) {
-                    isKeyDownE = true;
-                } else {
-                    isKeyDownE = false;
+                var mouse = Pointer.current;
+                if (mouse != null) {
+                    MouseStatus = InputMouseStatus.None;
+                    MouseScreenPosition = mouse.position.ReadValue();
+                    if (mouse.press.wasPressedThisFrame) {
+                        MouseStatus = InputMouseStatus.DownFirst;
+                        IsDragging = true;
+                    } else if (mouse.press.wasReleasedThisFrame) {
+                        if (IsDragging) {
+                            MouseStatus = InputMouseStatus.Up;
+                        }
+                        IsDragging = false;
+                    } else if (mouse.press.isPressed) {
+                        MouseStatus = InputMouseStatus.DownMaintain;
+                    }
                 }
             }
-
         }
+
     }
 }

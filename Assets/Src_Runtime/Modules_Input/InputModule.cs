@@ -15,7 +15,7 @@ namespace GJ {
         }
 
         public void Tick(float dt) {
-            inputEntity.Tick(dt);
+            inputEntity.Process(dt);
         }
 
     }
