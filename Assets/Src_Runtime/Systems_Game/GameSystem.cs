@@ -15,7 +15,6 @@ namespace GJ {
         }
 
         public void Inject(AssetModule assetModule, UICore ui,
-        RoleRepository roleRepository,
         PropRepository propRepository,
         GameEntity gameEntity,
         InputModule inputModule
@@ -23,7 +22,6 @@ namespace GJ {
         ) {
             ctx.ui = ui;
             ctx.assetModule = assetModule;
-            ctx.roleRepository = roleRepository;
             ctx.propRepository = propRepository;
             ctx.gameEntity = gameEntity;
             ctx.userEntity = userEntity;
@@ -55,19 +53,6 @@ namespace GJ {
         }
 
         void FixTick(float dt) {
-
-            // Owner 
-            var owner = ctx.Get_Owner();
-            if (owner != null) {
-                RoleController.Tick_Owner(ctx, owner, dt);
-            }
-
-            // Other Roles
-            int roleLen = ctx.roleRepository.TakeAll(out var roles);
-            for (int i = 0; i < roleLen; i++) {
-                var role = roles[i];
-                // 不是主角
-            }
 
         }
 

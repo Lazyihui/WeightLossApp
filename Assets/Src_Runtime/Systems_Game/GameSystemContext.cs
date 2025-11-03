@@ -14,7 +14,6 @@ namespace GJ {
         public UICore ui;
         public AssetModule assetModule;
         public InputModule inputModule;
-        public RoleRepository roleRepository;
         public PropRepository propRepository;
         public UserEntity userEntity;
         public GameEntity gameEntity;
@@ -24,12 +23,5 @@ namespace GJ {
         public GameSystemContext() {
             events = new GameSystemEvents();
         }
-
-        public RoleEntity Get_Owner() {
-            UniqueID ownerID = gameEntity.ownerID;
-            roleRepository.TryGet(ownerID, out RoleEntity role);
-            return role;
-        }
-
     }
 }

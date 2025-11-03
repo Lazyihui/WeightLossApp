@@ -15,7 +15,6 @@ namespace GJ {
         static InputModule inputModule;
 
         // ==== Repository =====
-        static RoleRepository roleRepository;
         static PropRepository propRepository;
         static GameEntity gameEntity;
         static UserEntity userEntity;
@@ -45,7 +44,6 @@ namespace GJ {
             inputModule.Ctor();
 
             //==== Repository ====
-            roleRepository = new RoleRepository();
             propRepository = new PropRepository();
 
             // Inject
@@ -53,7 +51,6 @@ namespace GJ {
             loginSystem.Inject(assetModule, uiCore);
             finishSystem.Inject(assetModule, uiCore);
             gameSystem.Inject(assetModule, uiCore,
-                                  roleRepository,
                                     propRepository,
                                   gameEntity,
                                   inputModule,

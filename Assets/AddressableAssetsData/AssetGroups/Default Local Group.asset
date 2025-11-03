@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: dc08e8599cb4f23478c2617c99bc3034
+  m_SerializeEntries:
+  - m_GUID: 7936ed84fdb9912468d71d4d5dc2cc2f
+    m_Address: Assets/Res_Runtime/Panel/Panel_Login.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    - Panel
+    - Prop
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: daef1583319819d43aa5c3be08f361dc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6f06e41346808b044985ae9c6fb3a2b6, type: 2}
+    - {fileID: 11400000, guid: 514147c85b32a264f8c7632e4ec63b67, type: 2}
