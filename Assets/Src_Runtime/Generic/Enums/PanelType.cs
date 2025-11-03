@@ -7,6 +7,7 @@ namespace GJ {
         Logo = 1,
         Login = 2,
         Curtain = 3,
+        Keyboard = 4,
     }
 
 }

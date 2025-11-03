@@ -25,6 +25,12 @@ MonoBehaviour:
     - Panel
     - Prop
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd576464739ccf844ba49bb954ffd519
+    m_Address: Assets/Res_Runtime/Panel/KeyBoard/Panel_Keyboard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: daef1583319819d43aa5c3be08f361dc, type: 2}
   m_SchemaSet:

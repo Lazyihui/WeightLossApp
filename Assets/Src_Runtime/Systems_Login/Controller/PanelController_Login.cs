@@ -32,6 +32,25 @@ namespace GJ.Systems_Game {
         }
         #endregion
 
+
+        #region Keyboard
+        public static void Keyboard_Open(LoginSystemContext ctx) {
+            PanelOpenResult res = ctx.uiCore.P_TryOpen<Panel_Keyboard>(PanelType.Keyboard, UIRootLevel.SuperTop, out var panel);
+            if (res == PanelOpenResult.FirstOpen) {
+                panel.Ctor();
+            }
+            panel.Init();
+        }
+
+        public static void Keyboard_Close(LoginSystemContext ctx) {
+            bool has = ctx.uiCore.P_TryGet<Panel_Keyboard>(PanelType.Keyboard, out var panel);
+            if (has) {
+                ctx.uiCore.P_Remove(panel);
+                panel.Close();
+            }
+        }
+
+        #endregion
     }
 
 }
