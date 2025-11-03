@@ -69,15 +69,9 @@ namespace GJ {
             // - Login
             var loginEvents = loginSystem.Events;
             loginEvents.OnStartHandle = () => {
-                loginSystem.ExitWithoutNotify();
-                gameSystem.NewGame();
+                Debug.Log("点击添加体重按钮");
             };
 
-            // - Game
-            var gameEvents = gameSystem.Events;
-            gameEvents.OnCurtainHande = () => {
-                finishSystem.Enter();
-            };
         }
         #region Init IE
         IEnumerator InitIE() {

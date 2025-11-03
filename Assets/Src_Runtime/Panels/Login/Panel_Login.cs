@@ -11,7 +11,7 @@ namespace GJ {
 
         PanelType IPanelAsset.Type => PanelType.Login;
 
-        [SerializeField] Button btn_start;
+        [SerializeField] Button btn_Add;
         [SerializeField] Button btn_exitGame;
 
         [SerializeField] TextMeshProUGUI txt_title;
@@ -20,7 +20,7 @@ namespace GJ {
         public Action OnExitGameHandle;
 
         public void Ctor() {
-            btn_start.onClick.AddListener(() => {
+            btn_Add.onClick.AddListener(() => {
                 OnStartHandle?.Invoke();
             });
 
@@ -36,7 +36,7 @@ namespace GJ {
             Destroy(this.gameObject);
         }
         public void Close() {
-            btn_start.onClick.RemoveAllListeners();
+            btn_Add.onClick.RemoveAllListeners();
         }
 
     }
