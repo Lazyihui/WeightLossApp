@@ -20,7 +20,11 @@ namespace GJ {
             PanelController.Login_Open(ctx);
 
             ctx.status = SystemStatus.Running;
+        }
 
+        public void Enter_Keyboard() {
+            PanelController.Login_Close(ctx);
+            PanelController.Keyboard_Open(ctx);
         }
 
         public void ExitWithoutNotify() {

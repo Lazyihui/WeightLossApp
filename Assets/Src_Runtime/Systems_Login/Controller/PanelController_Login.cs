@@ -11,7 +11,7 @@ namespace GJ.Systems_Game {
             if (res == PanelOpenResult.FirstOpen) {
                 panel.Ctor();
 
-                panel.OnStartHandle = ctx.events.OnStart;
+                panel.OnAddHandle = ctx.events.OnAdd;
                 panel.OnExitGameHandle = () => {
 #if UNITY_EDITOR
                     UnityEditor.EditorApplication.isPlaying = false;

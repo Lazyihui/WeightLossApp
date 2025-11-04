@@ -16,12 +16,12 @@ namespace GJ {
 
         [SerializeField] TextMeshProUGUI txt_title;
 
-        public Action OnStartHandle;
+        public Action OnAddHandle;
         public Action OnExitGameHandle;
 
         public void Ctor() {
             btn_Add.onClick.AddListener(() => {
-                OnStartHandle?.Invoke();
+                OnAddHandle?.Invoke();
             });
 
             btn_exitGame.onClick.AddListener(() => {

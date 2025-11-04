@@ -4,7 +4,7 @@ namespace GJ {
 
     public class LoginSystemEvents {
         public Action OnStartHandle;
-        public void OnStart() => OnStartHandle.Invoke();
+        public void OnAdd() => OnStartHandle.Invoke();
 
         public LoginSystemEvents() { }
     }

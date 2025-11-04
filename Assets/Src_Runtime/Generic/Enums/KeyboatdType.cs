@@ -1,0 +1,22 @@
+using System;
+
+namespace GJ {
+
+    public enum KeyboardType {
+        number_1 = 1,
+        number_2 = 2,
+        number_3 = 3,
+        number_4 = 4,
+        number_5 = 5,
+        number_6 = 6,
+        number_7 = 7,
+        number_8 = 8,
+        number_9 = 9,
+        number_0 = 10,
+        delete = 11,
+        clear = 12,
+        enter = 13,
+        point = 14,
+    }
+
+}

@@ -71,6 +71,7 @@ namespace GJ {
             var loginEvents = loginSystem.Events;
             loginEvents.OnStartHandle = () => {
                 Debug.Log("点击添加体重按钮");
+                loginSystem.Enter_Keyboard();
             };
 
         }
