@@ -34,7 +34,7 @@ namespace GJ {
         public void Close() {
             btn_number.onClick.RemoveAllListeners();
         }
-
+      
         public void SetData() {
             // 使用更简洁的映射方式
             switch (txt_title.text) {
@@ -48,7 +48,7 @@ namespace GJ {
                 case "8": keyboardType = KeyboardType.number_8; break;
                 case "9": keyboardType = KeyboardType.number_9; break;
                 case "0": keyboardType = KeyboardType.number_0; break;
-                case "删除": keyboardType = KeyboardType.delete; break;
+                case "delect": keyboardType = KeyboardType.delete; break;
                 case "清空": keyboardType = KeyboardType.clear; break;
                 case "确认": keyboardType = KeyboardType.enter; break;
                 case ".": keyboardType = KeyboardType.point; break;

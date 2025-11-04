@@ -10,8 +10,9 @@ namespace GJ {
 
         PanelType IPanelAsset.Type => PanelType.Keyboard;
 
-        // [SerializeField] Button btn_Add;
-        [SerializeField] TextMeshProUGUI txt_title;
+        [SerializeField] Button btn_Close;
+        public Action OnCloseHandle;
+        [SerializeField] TextMeshProUGUI text_Number;
         [SerializeField] Transform root;
 
         public Action OnStartHandle;
@@ -26,10 +27,9 @@ namespace GJ {
         public void Ctor() {
             keyboardElements = new List<Panel_keyboardEle>();
 
-            // btn_Add.onClick.AddListener(() => {
-            //     OnStartHandle?.Invoke();
-            // });
-
+            btn_Close.onClick.AddListener(() => {
+                OnCloseHandle?.Invoke();
+            });
             // 初始化所有键盘元素
             InitializeKeyboardElements();
         }
@@ -46,8 +46,7 @@ namespace GJ {
         }
 
         void OnKeyPressed(Panel_keyboardEle keyElement) {
-            Debug.Log("Key Pressed: " + keyElement.txt_title.text);
-            switch (keyElement.keyboardType) {  
+            switch (keyElement.keyboardType) {
                 case KeyboardType.number_0:
                 case KeyboardType.number_1:
                 case KeyboardType.number_2:
@@ -90,6 +89,23 @@ namespace GJ {
         }
 
         void AddNumber(string number) {
+            // 检查是否已经包含小数点
+            if (currentInput.Contains(".")) {
+                // 获取小数点后的部分
+                string[] parts = currentInput.Split('.');
+                if (parts.Length == 2) {
+                    // 如果小数点后已经有一位数字，就不再添加
+                    if (parts[1].Length >= 1) {
+                        return;
+                    }
+                }
+            }
+
+            // 如果是第一个字符输入0，后面只能输入小数点
+            if (currentInput == "0" && number != ".") {
+                return;
+            }
+
             currentInput += number;
         }
 
@@ -105,7 +121,7 @@ namespace GJ {
 
         void ConfirmInput() {
             OnInputComplete?.Invoke(currentInput);
-            Debug.Log("input: " + currentInput);
+            Debug.Log("input: " + currentInput + text_Number.text);
             // 可以选择清空输入或保持显示
             // ClearInput();
             // UpdateDisplay();
@@ -114,9 +130,9 @@ namespace GJ {
         void UpdateDisplay() {
             // 如果为空，可以显示提示文本
             if (string.IsNullOrEmpty(currentInput)) {
-                txt_title.text = "inputNumber...";
+                text_Number.text = "input...";
             } else {
-                txt_title.text = currentInput;
+                text_Number.text = currentInput;
             }
         }
 
@@ -148,12 +164,16 @@ namespace GJ {
             }
             keyboardElements.Clear();
 
-            // btn_Add.onClick.RemoveAllListeners();
+            btn_Close.onClick.RemoveAllListeners();
             Destroy(this.gameObject);
         }
 
+        public void SetGameObjectActive(bool isActive) {
+            this.gameObject.SetActive(isActive);
+        }
+
         public void Close() {
-            // btn_Add.onClick.RemoveAllListeners();
+            btn_Close.onClick.RemoveAllListeners();
         }
     }
 }

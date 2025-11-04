@@ -23,8 +23,8 @@ namespace GJ {
         }
 
         public void Enter_Keyboard() {
-            PanelController.Login_Close(ctx);
             PanelController.Keyboard_Open(ctx);
+            PanelController.Keyboard_SetGameObjectActive(ctx, true);
         }
 
         public void ExitWithoutNotify() {
