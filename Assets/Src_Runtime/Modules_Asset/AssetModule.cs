@@ -18,14 +18,10 @@ namespace GJ {
         AsyncOperationHandle entityHandle;
         AsyncOperationHandle missionHandle;
 
-        Dictionary<TypeID, PropSO> props;
-        AsyncOperationHandle propHandle;
-
 
         public void Ctor() {
             panels = new Dictionary<PanelType, GameObject>();
             entities = new Dictionary<EntityType, GameObject>();
-            props = new Dictionary<TypeID, PropSO>();
         }
 
         public IEnumerator LoadAllIE() {

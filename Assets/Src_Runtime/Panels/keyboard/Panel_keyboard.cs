@@ -15,8 +15,6 @@ namespace GJ {
         [SerializeField] TextMeshProUGUI text_Number;
         [SerializeField] Transform root;
 
-        public Action OnStartHandle;
-
         // 存储输入的数字
         string currentInput = "";
         List<Panel_keyboardEle> keyboardElements;

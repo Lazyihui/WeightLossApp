@@ -7,7 +7,6 @@ namespace GJ.Systems_Game {
 
         public static void NewGame(GameSystemContext ctx) {
             TypeID typeID = TypeID.Invalid;
-            GJLog.Log("进入游戏");
             ctx.status = SystemStatus.Running;
 
         }

@@ -1,5 +1,4 @@
 using System.Collections;
-using GJ.Systems_Game;
 using UnityEngine;
 
 namespace GJ {
@@ -16,7 +15,6 @@ namespace GJ {
         static InputModule inputModule;
 
         // ==== Repository =====
-        static PropRepository propRepository;
         static GameEntity gameEntity;
         static UserEntity userEntity;
 
@@ -44,15 +42,12 @@ namespace GJ {
             inputModule = GetComponentInChildren<InputModule>();
             inputModule.Ctor();
 
-            //==== Repository ====
-            propRepository = new PropRepository();
 
             // Inject
             uiCore.Inject(assetModule);
             loginSystem.Inject(assetModule, uiCore);
             finishSystem.Inject(assetModule, uiCore);
             gameSystem.Inject(assetModule, uiCore,
-                                    propRepository,
                                   gameEntity,
                                   inputModule,
                                   userEntity

@@ -15,14 +15,12 @@ namespace GJ {
         }
 
         public void Inject(AssetModule assetModule, UICore ui,
-        PropRepository propRepository,
         GameEntity gameEntity,
         InputModule inputModule
         , UserEntity userEntity
         ) {
             ctx.ui = ui;
             ctx.assetModule = assetModule;
-            ctx.propRepository = propRepository;
             ctx.gameEntity = gameEntity;
             ctx.userEntity = userEntity;
             ctx.inputModule = inputModule;

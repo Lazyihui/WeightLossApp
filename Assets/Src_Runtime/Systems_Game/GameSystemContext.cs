@@ -1,6 +1,4 @@
 using System;
-using UnityEditor.Build.Pipeline.Tasks;
-using UnityEngine.Video;
 
 
 namespace GJ {
@@ -14,7 +12,6 @@ namespace GJ {
         public UICore ui;
         public AssetModule assetModule;
         public InputModule inputModule;
-        public PropRepository propRepository;
         public UserEntity userEntity;
         public GameEntity gameEntity;
 
